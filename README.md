@@ -7,7 +7,7 @@ A web-scraping script to find desired ships' position on vesselfinder website
   
 2. Launch the py script
 
-3 Read the result in the "risultati-ricerca.txt" file
+3. Read the result in the "risultati-ricerca.txt" file
 
 
  
