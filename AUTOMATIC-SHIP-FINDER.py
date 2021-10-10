@@ -71,9 +71,23 @@ def extract_destination(soup_element):
     return div.find_all("strong")[1].get_text().strip()
 
 
+def detect_lat(string):
+    if(string.startswith("-")):
+        return string[1:] + 'S'
+    else:
+        return string + 'N'
+
+
+def detect_long(string):
+    if(string.startswith("-")):
+        return string[1:] + 'W'
+    else:
+        return string + 'E'
+
+
 def compile_ship_data(ship, lat, long, course, speed, delay, destination):
-    ship.position['lat'] = lat
-    ship.position['long'] = long
+    ship.position['lat'] = detect_lat(lat).strip()
+    ship.position['long'] = detect_long(long).strip()
     ship.course = course
     ship.speed = speed
     ship.delay = delay.split("ago", 1)[0].strip() + ' ago'
